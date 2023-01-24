@@ -247,9 +247,11 @@ The find method takes a key as an argument and returns the value for that key. I
 ## Rotating an array by K positions
 
 ```Ruby
-# Rotate the array to the left
+rotated_arr = Array.new(arr.length)
+
+# Rotate the array
 arr.each_with_index do |element, index|
-  rotated_index = (index - k + arr.length) % arr.length
+  rotated_index = (index + k) % arr.length
   rotated_arr[rotated_index] = element
 end
 ```
