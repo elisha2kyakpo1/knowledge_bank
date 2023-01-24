@@ -243,3 +243,15 @@ The hash method takes a key as an argument and returns the index in the array wh
 The insert method takes a key and a value as arguments, and adds a key-value pair to the hash table. It does this by calling the hash method to get the index in the array, and then adding the key-value pair to a linked list at that index. If the array element at the index is nil, the method creates a new linked list and stores it at the index.
 
 The find method takes a key as an argument and returns the value for that key. It does this by calling the hash method to get the index in the array, and then searching the linked list at that index for the key-value pair. If the key is found, it returns the value; if the key is not found, it returns nil.
+
+## Rotating an array by K positions
+
+```Ruby
+# Rotate the array to the left
+arr.each_with_index do |element, index|
+  rotated_index = (index - k + arr.length) % arr.length
+  rotated_arr[rotated_index] = element
+end
+```
+
+This code snippet is rotating an array "arr" to the left by "k" number of positions. It does this by looping through each element in the array using the "each_with_index" method, and then calculates a new index position for each element based on its current index minus "k" and the length of the array. This new index is then used to place the element in a new array called "rotated_arr". The final step is to use the modulus operator to ensure that the new index stays within the bounds of the array.
